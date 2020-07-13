@@ -33,6 +33,7 @@
 				</section>
 				<section data-markdown>
 					<textarea data-template>
+						- Image?
 						- Noah Hüsser <!-- .element: class="fragment" -->
 						- Aka Yatekii <!-- .element: class="fragment" -->
 						- Born Swiss <!-- .element: class="fragment" -->
@@ -41,41 +42,117 @@
 				</section>
 				<section data-markdown>
 					<textarea data-template>
+						- Logo
+						- Some image?
 						- Technokrat
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
+						- Image of Throw/Lock
 						- Ju Jitsu
 					</textarea>
 				</section>
 			</section>
-			<section>Why did I write probe-rs</section>
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## The Need
+
+						- Some way to inspect a guest CPU with no common way of IO.
+						- A **Proper** Graphical Editor & Debugger
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## The Struggle
+
+						- Most good tools are Proprietary
+						- Most OSS tools are Eclipse & GDB based
+						- Reliability & Useability is bad
+						- Ecosystem did not change in years
+
+						Note:
+						Aka why did I start probe-rs
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## The **Optimal** Solution
+
+						- Editor of Choice
+						- Debugger of Choice
+						- Extendability
+						- Clean Code
+						- Project Encourages Contribution
+					</textarea>
+				</section>
+			</section>
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## The Setup
+
+						Image of chain
+						Host -> USB -> Probe -> SWD/JTAG -> Target
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Target
+
+						- Image of target
+						- An Embedded CPU
+						- Different Architectures
+						- Vendor Defined Behavior
+						- Standardized Interface
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Probe
+
+						- Image of probe
+						- Proprietary Connector between Host and Target
+						- Mostly Proprietary Host Interface
+						- Standardized Target Interface
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Host
+
+						- Image of host
+						- Driver for the Probe
+						- Driver for the Target Interface
+					</textarea>
+				</section>
+			</section>
 			<section>
 				<section data-markdown>
 					<textarea data-template>
 						## The traditional setup
-
-						Note:
-						This will only display in the notes window.
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
 						## Initial setup
 						### GDB -> ELF
+						- Image
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
 						## Remote debugging
 						### GDB -> GDB-STUB -> ELF
+						- Image
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
 						## UI debugging
 						### UI -> MI -> GDB -> GDB-STUB -> ELF
+						- Image
 					</textarea>
 				</section>
 
@@ -83,24 +160,104 @@
 					<textarea data-template>
 						## Optimal UI debugging
 						### UI -> SERVER -> ELF
+						- Image
 					</textarea>
 				</section>
 			</section>
 
-			<section>Why did I write probe-rs</section>
-			<section>Shortcommings of existing tools</section>
-			<section>How does it work</section>
-			<section data-markdown>
-				<textarea data-template>
-					## MCU debugging
-					- wie das bisjetzt gmacht worde isch und wie probe-rs das jetzt besser macht.
-					- Was sind so d Schwirigkeite gsi wod drüber gstolperet bisch?
-					- Gits Sache wo vil eifacher als denkt gsi sind?
-				</textarea>
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## CMSIS-DAP
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## CMSIS-Packs
+					</textarea>
+				</section>
 			</section>
-			<section>What can we do currently?</section>
-			<section>Where do we want to go?</section>
-			<section>Why Rust</section>
+
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## Debugging
+
+						- What comes here?
+					</textarea>
+				</section>
+			</section>
+
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## Flashing
+
+						- Show image of the chain
+					</textarea>
+				</section>
+			</section>
+
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## What can we do?
+
+						- Manipulate memory
+						- Manipulate CPU
+						- Flash ELF
+						- Show examples (show a succession of several CPU operations)!
+					</textarea>
+					<textarea data-template>
+						## What is planned for the future?
+
+						- Vscode
+						- ITM
+						- Our own probe
+						- Custom workflows
+						- More stability
+						- More graphical tools
+						- Better GDB
+						- probe-rs-server
+					</textarea>
+				</section>
+			</section>
+
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## How is probe-rs an improvement over existing tools?
+
+						- What comes here?
+					</textarea>
+				</section>
+			</section>
+
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## Hardships
+
+						- Need to implement Probe & Target interface but some Probes abstract more and some less. Some are very obfuscated and some less.
+					</textarea>
+				</section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## The Easy Life
+
+						- What was easy?
+					</textarea>
+				</section>
+			</section>
+
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## Demotime!
+					</textarea>
+				</section>
+			</section>
 		</div>
 	</div>
 
