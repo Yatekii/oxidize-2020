@@ -10,6 +10,8 @@
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
 	<link rel="stylesheet" href="dist/theme/tkrt.css" id="theme">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+		integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
 	<!-- Theme used for syntax highlighted code -->
 	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
@@ -57,19 +59,72 @@
 			<section>
 				<section data-markdown>
 					<textarea data-template>
-						## The Need
-
-						- Some way to inspect a guest CPU with no common way of IO.
-						- A **Proper** Graphical Editor & Debugger
+						January 2019
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						I have been doing embedded things for 7 years.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Every project we used a different flavor of Eclipse.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Tooling is not nice to use.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Doing embedded seems not fun anymore.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						So I want to try out Embedded Rust.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						I wanted to use my favorite editor.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						And also use it as a debugger.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						I put countless hours into setup.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						To no avail.
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Ecosystem did not move an inch
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						#### It all started with the need of
+						## A **Proper** Graphical Editor & Debugger
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
 						## The Struggle
 
-						- Most good tools are Proprietary
-						- Most OSS tools are Eclipse & GDB based
-						- Reliability & Useability is bad
+						- Most **Good** Tools are Proprietary
+						- Most OSS tools are **Eclipse & GDB** based
+						- Reliability & Useability in Combination is Bad
 						- Ecosystem did not change in years
 
 						Note:
@@ -129,39 +184,93 @@
 				</section>
 			</section>
 			<section>
+				<style scoped>
+					ul.debug-chain {
+						width: 100%;
+						height: 100%;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: space-around;
+						margin: 0;
+					}
+
+					ul.debug-chain>li {
+						width: 10em;
+						height: 2.5em;
+						margin-top: 0.5em;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+
+					[data-id=ui] {
+						background: #03738C;
+					}
+
+					[data-id=mi] {
+						background: #0396A6;
+					}
+
+					[data-id=gdb] {
+						background: #78BF30;
+					}
+
+					[data-id=stub] {
+						background: #B0BF3B;
+					}
+
+					[data-id=target] {
+						background: #BF6734;
+					}
+
+					[data-id=server] {
+						background: #0396A6;
+					}
+				</style>
 				<section data-markdown>
 					<textarea data-template>
 						## The traditional setup
 					</textarea>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## Initial setup
-						### GDB -> ELF
-						- Image
-					</textarea>
+				<section data-auto-animate>
+					<ul class="debug-chain">
+						<li data-id="ui" class="d-none">UI</li>
+						<li data-id="mi" class="d-none">MI</li>
+						<li data-id="gdb">GDB</li>
+						<li data-id="stub" class="d-none">STUB</li>
+						<li data-id="target">TARGET</li>
+					</ul>
+				</section>
+				<section data-auto-animate>
+					<ul class="debug-chain">
+						<li data-id="ui" class="d-none">UI</li>
+						<li data-id="mi" class="d-none">MI</li>
+						<li data-id="gdb">GDB</li>
+						<li data-id="stub">STUB</li>
+						<li data-id="target">TARGET</li>
+					</ul>
+				</section>
+				<section>
+					<ul>
+						<li data-id="ui">UI</li>
+						<li data-id="mi">MI</li>
+						<li data-id="gdb">GDB</li>
+						<li data-id="stub">STUB</li>
+						<li data-id="target">TARGET</li>
+					</ul>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## Remote debugging
-						### GDB -> GDB-STUB -> ELF
-						- Image
+						## What if
 					</textarea>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## UI debugging
-						### UI -> MI -> GDB -> GDB-STUB -> ELF
-						- Image
-					</textarea>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
-						## Optimal UI debugging
-						### UI -> SERVER -> ELF
-						- Image
-					</textarea>
+				<section>
+					<ul>
+						<li data-id="ui">UI</li>
+						<li data-id="server" style="height: 8.5em;">SERVER</li>
+						<li data-id="target">TARGET</li>
+					</ul>
 				</section>
 			</section>
 
@@ -273,7 +382,7 @@
 			hash: true,
 
 			// Learn about plugins: https://revealjs.com/plugins/
-			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
 		});
 	</script>
 </body>
