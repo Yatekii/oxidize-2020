@@ -184,6 +184,11 @@
 				</section>
 			</section>
 			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## Host Part of Debug Chain
+					</textarea>
+				</section>
 				<style scoped>
 					ul.debug-chain {
 						width: 100%;
@@ -252,7 +257,7 @@
 					</ul>
 				</section>
 				<section>
-					<ul>
+					<ul class="debug-chain">
 						<li data-id="ui">UI</li>
 						<li data-id="mi">MI</li>
 						<li data-id="gdb">GDB</li>
@@ -266,11 +271,91 @@
 					</textarea>
 				</section>
 				<section>
-					<ul>
+					<ul class="debug-chain">
 						<li data-id="ui">UI</li>
 						<li data-id="server" style="height: 8.5em;">SERVER</li>
 						<li data-id="target">TARGET</li>
 					</ul>
+				</section>
+			</section>
+
+			<section>
+				<section data-markdown>
+					<textarea data-template>
+						## probe-rs structure
+					</textarea>
+				</section>
+				<style scoped>
+					div.row>div>div {
+						margin-top: 0.5em;
+						height: 2em;
+						padding-top: 0.3em;
+						vertical-align: middle;
+					}
+
+					.application>div>div {
+						background: #03738C;
+					}
+
+					.external-lib>div>div {
+						background: #0396A6;
+					}
+
+					.session>div>div {
+						background: #78BF30;
+					}
+
+					.core>div>div {
+						background: #B0BF3B;
+					}
+
+					.probe>div>div {
+						background: #BF6734;
+					}
+				</style>
+				<section>
+					<div class="container probe-rs-structure align-middle">
+						<div class="row mb-2 application">
+							<div class="col-4">
+								<div>cargo-flash</div>
+							</div>
+							<div class="col-4">
+								<div>cargo-embed</div>
+							</div>
+							<div class="col-4">
+								<div>vscode</div>
+							</div>
+						</div>
+						<div class="row mb-2 external-lib">
+							<div class="col-4">
+								<div>probe-rs-rtt</div>
+							</div>
+							<div class="col-4">
+								<div>GDB</div>
+							</div>
+							<div class="col-4">
+								<div>Flashing</div>
+							</div>
+						</div>
+						<div class="row mb-2 session">
+							<div class="col-12">
+								<div>Session</div>
+							</div>
+						</div>
+						<div class="row mb-2 core">
+							<div class="col-6">
+								<div>Core</div>
+							</div>
+							<div class="col-6">
+								<div>Target Description</div>
+							</div>
+						</div>
+						<div class="row mb-2 probe">
+							<div class="col-12">
+								<div>Probe</div>
+							</div>
+						</div>
+					</div>
 				</section>
 			</section>
 
