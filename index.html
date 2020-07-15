@@ -27,6 +27,7 @@
 					</textarea>
 				</section>
 			</section>
+			<!-- ABOUT ME -->
 			<section>
 				<section data-markdown>
 					<textarea data-template>
@@ -56,93 +57,20 @@
 					</textarea>
 				</section>
 			</section>
+			<!-- WHAT IS PROBE RS-->
 			<section>
 				<section data-markdown>
 					<textarea data-template>
-						January 2019
+						What is probe-rs?
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						I have been doing embedded things for 7 years.
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						Every project we used a different flavor of Eclipse.
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						Tooling is not nice to use.
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						Doing embedded seems not fun anymore.
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						So I want to try out Embedded Rust.
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						I wanted to use my favorite editor.
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						And also use it as a debugger.
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						I put countless hours into setup.
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						To no avail.
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						Ecosystem did not move an inch
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						#### It all started with the need of
-						## A **Proper** Graphical Editor & Debugger
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## The Struggle
-
-						- Most **Good** Tools are Proprietary
-						- Most OSS tools are **Eclipse & GDB** based
-						- Reliability & Useability in Combination is Bad
-						- Ecosystem did not change in years
-
-						Note:
-						Aka why did I start probe-rs
-					</textarea>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## The **Optimal** Solution
-
-						- Editor of Choice
-						- Debugger of Choice
-						- Extendability
-						- Clean Code
-						- Project Encourages Contribution
+						A debugging toolset and library for debugging embedded ARM and RISC-V targets on a separate host
 					</textarea>
 				</section>
 			</section>
+			<!-- WHAT IS THE PROBLEM WE ARE TRYING TO SOLVE? -->
 			<section>
 				<section data-markdown>
 					<textarea data-template>
@@ -183,10 +111,59 @@
 					</textarea>
 				</section>
 			</section>
+			<!-- BUT ARENT THERE OTHER TOOLS? YES BUT -->
 			<section>
+				<section>
+					<h2>There is tools for that already!</h2>
+					<div class="container">
+						<div class="row">
+							<div class="col-6">
+								<ul>
+									<li>Segger J-Link</li>
+									<li>ST-Link</li>
+									<li>CMSIS-DAP
+										<ul>
+											<li>Many variants</li>
+										</ul>
+									</li>
+									<li>Blackmagic Probe</li>
+									<li>...</li>
+								</ul>
+							</div>
+							<div class="col-6">
+								<ul>
+									<li>Segger J-Link Tools</li>
+									<li>ST-Link Utility</li>
+									<li>stlink-tool</li>
+									<li>pyOCD</li>
+									<li>OpenOCD
+										<ul>
+											<li>Many variants</li>
+										</ul>
+									</li>
+									<li>Custom Scripts & Programs</li>
+									<li>...</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<aside class="notes">
+						Yes but!
+					</aside>
+				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## Host Part of Debug Chain
+						## Yes but!
+
+						Note:
+						- Doing embedded for 7 years.
+						- Always Eclipse & GDB based.
+						- Every manufacturer with their own flavor.
+						- Plenty of tools with awesome features that are not compatible with each other.
+						- Tried to use VSCode & GDB in January 2019.
+						- Huge pain with no success.
+						- Conclusion: Ecosystem did not move an inch.
+						- Embedded development should be fun!
 					</textarea>
 				</section>
 				<style scoped>
@@ -238,7 +215,7 @@
 						## The traditional setup
 					</textarea>
 				</section>
-				<section data-auto-animate>
+				<section>
 					<ul class="debug-chain">
 						<li data-id="ui" class="d-none">UI</li>
 						<li data-id="mi" class="d-none">MI</li>
@@ -246,8 +223,12 @@
 						<li data-id="stub" class="d-none">STUB</li>
 						<li data-id="target">TARGET</li>
 					</ul>
+					<aside class="notes">
+						- We can directly attach to the program running on the host.
+						- Easy to do, many aweosme tools (VS, IntelliJ, VSCode, GDB)
+					</aside>
 				</section>
-				<section data-auto-animate>
+				<section>
 					<ul class="debug-chain">
 						<li data-id="ui" class="d-none">UI</li>
 						<li data-id="mi" class="d-none">MI</li>
@@ -255,6 +236,12 @@
 						<li data-id="stub">STUB</li>
 						<li data-id="target">TARGET</li>
 					</ul>
+					<aside class="notes">
+						- Now we want to debug on a remote target.
+						- We need a GDB server, called stub.
+						- Weird old serial protocol with lots of extensions and terrible docs.
+						- One giant gdb.c as source of truth.
+					</aside>
 				</section>
 				<section>
 					<ul class="debug-chain">
@@ -264,6 +251,13 @@
 						<li data-id="stub">STUB</li>
 						<li data-id="target">TARGET</li>
 					</ul>
+					<aside class="notes">
+						- We are trying to fit in a UI.
+						- GDB adds the MI (machine interface) for that.
+						- Suboptimal interface.
+						- We don't even fit in the code editor here.
+						- Can ofc be the same as the editor. Preferably moreso.
+					</aside>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
@@ -276,9 +270,168 @@
 						<li data-id="server" style="height: 8.5em;">SERVER</li>
 						<li data-id="target">TARGET</li>
 					</ul>
+					<aside class="notes">
+						- We get rid of all the intermediate things and directly implement a server in the debugger.
+						- Microsoft DAP!
+						- VSCode
+						- VS
+						- Vim
+						- Atom
+						- IntelliJ?
+						- ...
+					</aside>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## The optimal solution
+
+						- Editor of your choice
+						- Debugger of your choice
+						- Open API to be extendable
+						- Rust friendly but language-agnostic
+						- Project Encourages Contribution
+
+						Note:
+						- VSCode is a must for me
+						- GDB is an absolute no-go.
+							- Featureset nice.
+							- Useability not nice.
+							- Not interactive.
+							- Old protocols.
+						- OpenOCD is not optimal.
+							- Huge & nice featureset.
+							- Contribution discouraged.
+							- Code is organically grown and lots of functionality is in scripts.
+							- Setup is terrible.
+								- People copy paste configs.
+								- Nobody knows how things work.
+							- Programmatic use is not so nice.
+						- We want everything integrated into cargo.
+					</textarea>
+				</section>
+				<section>
+					<figure>
+						<img src=" https://imgs.xkcd.com/comics/standards.png">
+						<figcaption style="font-size: 0.4em;">source: https://xkcd.com/927/</figcaption>
+					</figure>
+
+					<aside class="notes">
+						- Pretty much everyone knows this xkcd
+						- This is in fact a problem we are trying to not neglect
+						- Not only because of compatibility but also because of the project size
+						- Using existing standards from ARM and Microsoft
+						- Before we continue to the HOW let me show you what we can do as of now.
+					</aside>
 				</section>
 			</section>
+			<!-- WHAT CAN PROBE RS ALREADY DO? -->
+			<section>
+				<section data-markdown>
+					## A small example.
+					### Let us
+					- Flash a program that counts up.
+					- Reset and halt the CPU.
+					- Set a breakpoint whenever the counter is increased.
+					- Wait for the CPU halt.
+					- Read the counter.
+					- Continue.
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Let us open a new `Session` and attach to core 0.
+						```rust
+						use probe_rs::Session;
+						use probe_rs::MemoryInterface;
 
+						let mut session = Session::auto_attach("nrf52")?;
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Flash our ELF binary.
+						```rust [6-10]
+						use probe_rs::Session;
+						use probe_rs::MemoryInterface;
+
+						let mut session = Session::auto_attach("nrf52")?;
+
+						probe_rs::flashing::download_file(
+							&mut session,
+							"./path/to/counter.elf",
+							Format::Elf
+						)?;
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Reset the core and halt it.
+						```rust [12-15]
+						use probe_rs::Session;
+						use probe_rs::MemoryInterface;
+
+						let mut session = Session::auto_attach("nrf52")?;
+
+						probe_rs::flashing::download_file(
+							&mut session,
+							"./path/to/counter.elf",
+							Format::Elf
+						)?;
+
+						let timeout = std::time::Duration::from_millis(500);
+						let mut core = session.core(0)?;
+						
+						core.reset_and_halt(timeout)?;			
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Set a breakpoint at the corresponding flash address.
+						```rust [6]
+						let timeout = std::time::Duration::from_millis(500);
+						let mut core = session.core(0)?;
+						
+						core.reset_and_halt(timeout)?;
+
+						core.set_breakpoint(0x0000_0042)?;				
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Loop and read the counter.
+						```rust [8-12]
+						let timeout = std::time::Duration::from_millis(500);
+						let mut core = session.core(0)?;
+						
+						core.reset_and_halt(timeout)?;
+
+						core.set_breakpoint(0x0000_0042)?;
+
+						loop {
+							core.run()?;
+							core.wait_for_core_halted(timeout)?;
+							core.read_word_32(0x2000_1337)?;
+						}					
+						```
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						We have control over the entire CPU.
+
+						Note:
+						- This enables us to create any other tool that does magic.
+						- The user should never care about what architecture they use.
+							- Halting, running, etc. the core is always the same!
+							- The API should be intuitive and fun to use.
+						- So how do we achieve all of this?
+					</textarea>
+				</section>
+			</section>
+			<!-- HOW DOES IT DO IT? TODO:-->
 			<section>
 				<section data-markdown>
 					<textarea data-template>
@@ -357,9 +510,7 @@
 						</div>
 					</div>
 				</section>
-			</section>
 
-			<section>
 				<section data-markdown>
 					<textarea data-template>
 						## CMSIS-DAP
@@ -371,84 +522,100 @@
 					</textarea>
 				</section>
 			</section>
-
+			<!-- WHAT DOES THE FUTURE LOOK LIKE? -->
 			<section>
 				<section data-markdown>
-					<textarea data-template>
-						## Debugging
-
-						- What comes here?
-					</textarea>
-				</section>
-			</section>
-
-			<section>
-				<section data-markdown>
-					<textarea data-template>
-						## Flashing
-
-						- Show image of the chain
-					</textarea>
-				</section>
-			</section>
-
-			<section>
-				<section data-markdown>
-					<textarea data-template>
-						## What can we do?
-
-						- Manipulate memory
-						- Manipulate CPU
-						- Flash ELF
-						- Show examples (show a succession of several CPU operations)!
-					</textarea>
 					<textarea data-template>
 						## What is planned for the future?
-
-						- Vscode
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						VSCode
+						- Stacktrace
+						- Stackframe
+						- Basic controls
+						- Status: Early alpha
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
 						- ITM
-						- Our own probe
-						- Custom workflows
-						- More stability
-						- More graphical tools
-						- Better GDB
-						- probe-rs-server
+						- Status: Around the corner (oxidize)
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						Custom workflows
+						- ARM Debug sequences
+						- Status: Concept phase
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						More stability
+						- The more users the more bugs ;)
+						- Speed improvements
+						- Special case handling
+						- Status: Reoccuring
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						More graphical tools
+						- An ITM & RTT tracer?
+						- ETM tracer even?
+						- Flash layout visualization?
+						- Status: PoC in JS
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						probe-rs-server
+						- Concurrent use of probe-rs
+						- Status: Being worked on
 					</textarea>
 				</section>
 			</section>
-
+			<!-- DEMO TIME -->
+			<section data-markdown>
+				<textarea data-template>
+					## Demo time!
+				</textarea>
+			</section>
+			<!-- OUR OWN PROBE -->
 			<section>
+				<section>
+					<h2>hs_probe</h2>
+					<img style="height: 10em;" src="img/hs-probe.png" />
+				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## How is probe-rs an improvement over existing tools?
-
-						- What comes here?
+						## the facts
+						- open source probe
+						- pure rust firmware
+						- extremely fast (500 Mbit/s)
+						- uses standard ARM API
+						- can stream DAP, ITM and UART data
+					</textarea>
+				</section>
+				<section data-markdown>
+					<textarea data-template>
+						## Sign up for it
+						TODO: URL
 					</textarea>
 				</section>
 			</section>
-
+			<!-- CONTRIBUTE -->
 			<section>
 				<section data-markdown>
 					<textarea data-template>
-						## Hardships
-
-						- Need to implement Probe & Target interface but some Probes abstract more and some less. Some are very obfuscated and some less.
-					</textarea>
-				</section>
-
-				<section data-markdown>
-					<textarea data-template>
-						## The Easy Life
-
-						- What was easy?
-					</textarea>
-				</section>
-			</section>
-
-			<section>
-				<section data-markdown>
-					<textarea data-template>
-						## Demotime!
+						## Contribute!
+						- https://probe.rs
+						- https://github.com/probe-rs/probe-rs
+						- [#probe-rs:matrix.org](https://matrix.to/#/#probe-rs:matrix.org) on Matrix
+						- Questions & Bugreports very welcome
+						- PRs even more welcome ;)
 					</textarea>
 				</section>
 			</section>
