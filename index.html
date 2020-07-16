@@ -5,7 +5,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-	<title>reveal.js</title>
+	<title>probe-rs</title>
 
 	<link rel="stylesheet" href="dist/reset.css">
 	<link rel="stylesheet" href="dist/reveal.css">
@@ -36,7 +36,6 @@
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						- Image?
 						- Noah Hüsser <!-- .element: class="fragment" -->
 						- Aka Yatekii <!-- .element: class="fragment" -->
 						- Born Swiss <!-- .element: class="fragment" -->
@@ -45,15 +44,12 @@
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						- Logo
-						- Some image?
-						- Technokrat
+						![Technokrat](https://technokrat.ch/static/img/svg_banner-light.svg)
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						- Image of Throw/Lock
-						- Ju Jitsu
+						![Ju Jitsu](img/jj.jpg)
 					</textarea>
 				</section>
 			</section>
@@ -86,7 +82,7 @@
 
 						ul.chain>li {
 							width: 10em;
-							height: 2.5em;
+							height: 3em;
 							margin-top: 0.5em;
 							display: flex;
 							align-items: center;
@@ -129,52 +125,51 @@
 						}
 					</style>
 					<ul class="chain">
-						<li data-id="ui">Host</li>
+						<li><img src="img/host.png"></li>
 						<li class="arrow">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</li>
-						<li data-id="mi">Probe</li>
+						<li><img src="img/jlink.png"></li>
 						<li class="arrow">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</li>
-						<li data-id="gdb">Target</li>
+						<li><img src="img/target.png"></li>
 					</ul>
 					<aside class="notes">
 						- We can directly attach to the program running on the host.
 						- Easy to do, many aweosme tools (VS, IntelliJ, VSCode, GDB)
 					</aside>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-							## Target
-							- TODO:
-							- Image of target
-							- An Embedded CPU
-							- Different Architectures
-							- Vendor Defined Behavior
-							- Standardized Interface
-						</textarea>
+				<section>
+					<h2>The Target</h2>
+					<img src="img/target.png" height="250" />
+					<br>
+					<ul>
+						<li>An Embedded CPU</li>
+						<li>Different Architectures</li>
+						<li>Vendor Defined Behavior</li>
+						<li>Standardized Interface</li>
+					</ul>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## Probe
-						- TODO:
-						- Image of probe
-						- Proprietary Connector between Host and Target
-						- Mostly Proprietary Host Interface
-						- Standardized Target Interface
-					</textarea>
+				<section>
+					<h2>The Probe</h2>
+					<img src="img/jlink.png" height="250" />
+					<ul>
+						<li>SWD/JTAG Peripheral between Host and Target</li>
+						<li>Mostly Proprietary Host Interface</li>
+						<li>Standardized Target Interface</li>
+					</ul>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## Host
-						- TODO:
-						- Image of host
-						- Driver for the Probe
-						- Driver for the Target Interface
-					</textarea>
+				<section>
+					<h2>The Host</h2>
+					<img src="img/host.png" height="250" />
+					<br>
+					<ul>
+						<li>Driver for the Probe</li>
+						<li>Driver for the Target Interface</li>
+					</ul>
 				</section>
 			</section>
 			<!-- BUT ARENT THERE OTHER TOOLS? YES BUT -->
 			<section>
 				<section>
-					<h2>There is tools for that already!</h2>
+					<h3>There is tools for that already!</h3>
 					<div class="container">
 						<div class="row">
 							<div class="col-6">
@@ -208,12 +203,19 @@
 						</div>
 					</div>
 					<aside class="notes">
-						Yes but!
+						- Many different tools
+						- We all know them
+						- Yes but!
 					</aside>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## Yes but!
+						## Yes but there is issues!
+
+						- Always Eclipse & GDB based.
+						- Every manufacturer with their own flavor.
+						- Plenty of tools with awesome features that are not compatible with each other.
+						- Embedded development should be fun!
 
 						Note:
 						- Doing embedded for 7 years.
@@ -388,17 +390,19 @@
 			<section>
 				<section data-markdown>
 					## A small example.
+				</section>
+				<section data-markdown>
 					### Let us
 					- Flash a program that counts up.
 					- Reset and halt the CPU.
-					- Set a breakpoint whenever the counter is increased.
-					- Wait for the CPU halt.
+					- Set a breakpoint where the counter is increased.
+					- Wait for the CPU to halt.
 					- Read the counter.
-					- Continue.
+					- Repeat the last two points.
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						Let us open a new `Session` and attach to core 0.
+						We open a new `Session`.
 						```rust
 						use probe_rs::Session;
 						use probe_rs::MemoryInterface;
@@ -426,7 +430,7 @@
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						Reset the core and halt it.
+						Attach to `Core(0)`, reset the core and halt it.
 						```rust [12-15]
 						use probe_rs::Session;
 						use probe_rs::MemoryInterface;
