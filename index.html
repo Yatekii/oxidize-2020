@@ -72,29 +72,89 @@
 			</section>
 			<!-- WHAT IS THE PROBLEM WE ARE TRYING TO SOLVE? -->
 			<section>
-				<section data-markdown>
-					<textarea data-template>
-						## The Setup
+				<section>
+					<style scoped>
+						ul.chain {
+							width: 100%;
+							height: 100%;
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							justify-content: space-around;
+							margin: 0;
+						}
 
-						Image of chain
-						Host -> USB -> Probe -> SWD/JTAG -> Target
-					</textarea>
+						ul.chain>li {
+							width: 10em;
+							height: 2.5em;
+							margin-top: 0.5em;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+						}
+
+						ul.chain>li.arrow {
+							font-size: 40px;
+							margin: -0.5em;
+							padding-top: 20px;
+						}
+
+						ul.chain>li.arrow>span {
+							font-size: 60px;
+							margin-top: -20px;
+						}
+
+						[data-id=ui] {
+							background: #03738C;
+						}
+
+						[data-id=mi] {
+							background: #0396A6;
+						}
+
+						[data-id=gdb] {
+							background: #78BF30;
+						}
+
+						[data-id=stub] {
+							background: #B0BF3B;
+						}
+
+						[data-id=target] {
+							background: #BF6734;
+						}
+
+						[data-id=server] {
+							background: #0396A6;
+						}
+					</style>
+					<ul class="chain">
+						<li data-id="ui">Host</li>
+						<li class="arrow">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</li>
+						<li data-id="mi">Probe</li>
+						<li class="arrow">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</li>
+						<li data-id="gdb">Target</li>
+					</ul>
+					<aside class="notes">
+						- We can directly attach to the program running on the host.
+						- Easy to do, many aweosme tools (VS, IntelliJ, VSCode, GDB)
+					</aside>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## Target
-
-						- Image of target
-						- An Embedded CPU
-						- Different Architectures
-						- Vendor Defined Behavior
-						- Standardized Interface
-					</textarea>
+							## Target
+							- TODO:
+							- Image of target
+							- An Embedded CPU
+							- Different Architectures
+							- Vendor Defined Behavior
+							- Standardized Interface
+						</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
 						## Probe
-
+						- TODO:
 						- Image of probe
 						- Proprietary Connector between Host and Target
 						- Mostly Proprietary Host Interface
@@ -104,7 +164,7 @@
 				<section data-markdown>
 					<textarea data-template>
 						## Host
-
+						- TODO:
 						- Image of host
 						- Driver for the Probe
 						- Driver for the Target Interface
@@ -510,7 +570,11 @@
 						</div>
 					</div>
 				</section>
-
+				<section>
+					<img src="img/flash-algorithms.svg">
+					<aside class="notes">
+					</aside>
+				</section>
 				<section data-markdown>
 					<textarea data-template>
 						## CMSIS-DAP
