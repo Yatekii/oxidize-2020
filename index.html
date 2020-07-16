@@ -495,7 +495,7 @@
 					</textarea>
 				</section>
 			</section>
-			<!-- HOW DOES IT DO IT? TODO:-->
+			<!-- HOW DOES IT DO IT? -->
 			<section>
 				<section data-markdown>
 					<textarea data-template>
@@ -575,23 +575,72 @@
 					</div>
 				</section>
 				<section>
-					<img src="img/flash-algorithms.svg">
+					<div class="container probe-rs-structure align-middle">
+						<div class="row mb-2 external-lib">
+							<div class="col-12">
+								<div>Flashing</div>
+							</div>
+						</div>
+					</div>
+					<img src="img/flash-algorithms-slow.svg" height="500">
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<div class="container probe-rs-structure align-middle">
+						<div class="row mb-2 external-lib">
+							<div class="col-12">
+								<div>Flashing</div>
+							</div>
+						</div>
+					</div>
+					<img src="img/flash-algorithms-fast.svg" height="500">
 					<aside class="notes">
 					</aside>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## CMSIS-DAP
+						<div class="container probe-rs-structure align-middle">
+							<div class="row mb-2 core">
+								<div class="col-12">
+									<div>Target Description</div>
+								</div>
+							</div>
+						</div>
+						<h2>CMSIS-Packs</h2>
+
+						- ARM Specification for target descriptions
+						- Contains flash algorithms
+						- Contains custom debug sequences
+						- Implemented by Vendors!
+						- Thousands of available targets!
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## CMSIS-Packs
+						<div class="container probe-rs-structure align-middle">
+							<div class="row mb-2 probe">
+								<div class="col-12">
+									<div>Probe</div>
+								</div>
+							</div>
+						</div>
+						<h2>CMSIS-DAP</h2>
+
+						- Standard for an USB probe interface
+						- Specified by ARM
+						- ARM oriented but suitable for RISC-V for example
+						- Based on HID and WinUSB
 					</textarea>
 				</section>
 			</section>
 			<!-- WHAT DOES THE FUTURE LOOK LIKE? -->
 			<section>
+				<style scoped>
+					.status {
+						color: #f44242;
+					}
+				</style>
 				<section data-markdown>
 					<textarea data-template>
 						## What is planned for the future?
@@ -599,23 +648,31 @@
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						VSCode
-						- Stacktrace
-						- Stackframe
-						- Basic controls
-						- Status: Early alpha
+						### VSCode
+						- Plugin
+						- Microsoft DAP (Modern JSON API)
+						- No GDB!
+						- Status: <span class="status">Early alpha</span>
+						- https://github.com/probe-rs/vscode
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						- ITM
-						- Status: Around the corner (oxidize)
+						### ITM
+						- Powerful data streaming on ARM v7/v8
+						- ISR event tracking
+						- Memory event tracking
+						- Custom binary data
+						- Status: <span class="status">Around the corner (oxidize)</span>
+						- https://github.com/probe-rs/probe-rs/pull/145
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						Custom workflows
+						### Custom workflows
 						- ARM Debug sequences
+						- Utilize CMSIS-Packs fully
+						- Unlocking, Attaching, Special bytes, etc.
 						- Status: Concept phase
 					</textarea>
 				</section>
@@ -625,7 +682,7 @@
 						- The more users the more bugs ;)
 						- Speed improvements
 						- Special case handling
-						- Status: Reoccuring
+						- Status: <span class="status">Reoccuring</span>
 					</textarea>
 				</section>
 				<section data-markdown>
@@ -634,14 +691,17 @@
 						- An ITM & RTT tracer?
 						- ETM tracer even?
 						- Flash layout visualization?
-						- Status: PoC in JS
+						- Status: <span class="status">PoC in JS</span>
+						- https://github.com/probe-rs/itm-tracer
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
 						probe-rs-server
 						- Concurrent use of probe-rs
-						- Status: Being worked on
+						- JSON-RPC
+						- Status: <span class="status">Being worked on</span>
+						- https://github.com/probe-rs/probe-rs/pull/293
 					</textarea>
 				</section>
 			</section>
