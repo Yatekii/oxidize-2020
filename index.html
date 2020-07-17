@@ -31,25 +31,29 @@
 			<section>
 				<section data-markdown>
 					<textarea data-template>
-						## About me
+						My name is
+						## Noah Hüsser
+						aka Yatekii
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						- Noah Hüsser <!-- .element: class="fragment" -->
-						- Aka Yatekii <!-- .element: class="fragment" -->
-						- Born Swiss <!-- .element: class="fragment" -->
-						- BSc in EE & IT <!-- .element: class="fragment" -->
+						I'm a
+						## Swiss Software Engineer
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
+						## working at
 						![Technokrat](https://technokrat.ch/static/img/svg_banner-light.svg)
+						https://technokrat.ch
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
+						## I like doing
 						![Ju Jitsu](img/jj.jpg)
+						# Ju Jitsu
 					</textarea>
 				</section>
 			</section>
@@ -57,7 +61,7 @@
 			<section>
 				<section data-markdown>
 					<textarea data-template>
-						What is probe-rs?
+						## What is probe-rs?
 					</textarea>
 				</section>
 				<section data-markdown>
@@ -68,62 +72,65 @@
 			</section>
 			<!-- WHAT IS THE PROBLEM WE ARE TRYING TO SOLVE? -->
 			<section>
+				<style scoped>
+					ul.chain {
+						width: 100%;
+						height: 100%;
+						display: flex;
+						flex-direction: column;
+						align-items: center;
+						justify-content: space-around;
+						margin: 0;
+					}
+
+					ul.chain>li {
+						width: 10em;
+						height: 3em;
+						margin-top: 0.5em;
+						display: flex;
+						align-items: center;
+						justify-content: center;
+					}
+
+					ul.chain>li.arrow {
+						font-size: 40px;
+						margin: -0.5em;
+						padding-top: 20px;
+					}
+
+					ul.chain>li.arrow>span {
+						font-size: 60px;
+						margin-top: -20px;
+					}
+
+					[data-id=ui] {
+						background: #03738C;
+					}
+
+					[data-id=mi] {
+						background: #0396A6;
+					}
+
+					[data-id=gdb] {
+						background: #78BF30;
+					}
+
+					[data-id=stub] {
+						background: #B0BF3B;
+					}
+
+					[data-id=target] {
+						background: #BF6734;
+					}
+
+					[data-id=server] {
+						background: #0396A6;
+					}
+				</style>
 				<section>
-					<style scoped>
-						ul.chain {
-							width: 100%;
-							height: 100%;
-							display: flex;
-							flex-direction: column;
-							align-items: center;
-							justify-content: space-around;
-							margin: 0;
-						}
-
-						ul.chain>li {
-							width: 10em;
-							height: 3em;
-							margin-top: 0.5em;
-							display: flex;
-							align-items: center;
-							justify-content: center;
-						}
-
-						ul.chain>li.arrow {
-							font-size: 40px;
-							margin: -0.5em;
-							padding-top: 20px;
-						}
-
-						ul.chain>li.arrow>span {
-							font-size: 60px;
-							margin-top: -20px;
-						}
-
-						[data-id=ui] {
-							background: #03738C;
-						}
-
-						[data-id=mi] {
-							background: #0396A6;
-						}
-
-						[data-id=gdb] {
-							background: #78BF30;
-						}
-
-						[data-id=stub] {
-							background: #B0BF3B;
-						}
-
-						[data-id=target] {
-							background: #BF6734;
-						}
-
-						[data-id=server] {
-							background: #0396A6;
-						}
-					</style>
+					<h2>The debug chain</h2>
+				</section>
+				<section>
 					<ul class="chain">
 						<li><img src="img/host.png"></li>
 						<li class="arrow">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</li>
@@ -132,8 +139,6 @@
 						<li><img src="img/target.png"></li>
 					</ul>
 					<aside class="notes">
-						- We can directly attach to the program running on the host.
-						- Easy to do, many aweosme tools (VS, IntelliJ, VSCode, GDB)
 					</aside>
 				</section>
 				<section>
@@ -148,7 +153,18 @@
 					</ul>
 				</section>
 				<section>
-					<h2>The Probe</h2>
+					<ul class="chain">
+						<li><img src="img/host.png"></li>
+						<li class="arrow">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</li>
+						<li><img src="img/jlink.png"></li>
+						<li class="arrow">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</li>
+						<li><img src="img/target.png"></li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>A Probe</h2>
 					<img src="img/jlink.png" height="250" />
 					<ul>
 						<li>SWD/JTAG Peripheral between Host and Target</li>
@@ -157,7 +173,18 @@
 					</ul>
 				</section>
 				<section>
-					<h2>The Host</h2>
+					<ul class="chain">
+						<li><img src="img/host.png"></li>
+						<li class="arrow">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</li>
+						<li><img src="img/jlink.png"></li>
+						<li class="arrow">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</li>
+						<li><img src="img/target.png"></li>
+					</ul>
+					<aside class="notes">
+					</aside>
+				</section>
+				<section>
+					<h2>A Host</h2>
 					<img src="img/host.png" height="250" />
 					<br>
 					<ul>
@@ -283,7 +310,7 @@
 						<li data-id="mi" class="d-none">MI</li>
 						<li data-id="gdb">GDB</li>
 						<li data-id="stub" class="d-none">STUB</li>
-						<li data-id="target">TARGET</li>
+						<li data-id="target">TARGET (on Host)</li>
 					</ul>
 					<aside class="notes">
 						- We can directly attach to the program running on the host.
@@ -296,7 +323,7 @@
 						<li data-id="mi" class="d-none">MI</li>
 						<li data-id="gdb">GDB</li>
 						<li data-id="stub">STUB</li>
-						<li data-id="target">TARGET</li>
+						<li data-id="target">TARGET (remote)</li>
 					</ul>
 					<aside class="notes">
 						- Now we want to debug on a remote target.
@@ -330,7 +357,7 @@
 					<ul class="debug-chain">
 						<li data-id="ui">UI</li>
 						<li data-id="server" style="height: 8.5em;">SERVER</li>
-						<li data-id="target">TARGET</li>
+						<li data-id="target">TARGET (remote)</li>
 					</ul>
 					<aside class="notes">
 						- We get rid of all the intermediate things and directly implement a server in the debugger.
@@ -345,7 +372,7 @@
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## The optimal solution
+						## My optimal solution
 
 						- Editor of your choice
 						- Debugger of your choice
@@ -616,23 +643,6 @@
 						- Thousands of available targets!
 					</textarea>
 				</section>
-				<section data-markdown>
-					<textarea data-template>
-						<div class="container probe-rs-structure align-middle">
-							<div class="row mb-2 probe">
-								<div class="col-12">
-									<div>Probe</div>
-								</div>
-							</div>
-						</div>
-						<h2>CMSIS-DAP</h2>
-
-						- Standard for an USB probe interface
-						- Specified by ARM
-						- ARM oriented but suitable for RISC-V for example
-						- Based on HID and WinUSB
-					</textarea>
-				</section>
 			</section>
 			<!-- WHAT DOES THE FUTURE LOOK LIKE? -->
 			<section>
@@ -643,7 +653,7 @@
 				</style>
 				<section data-markdown>
 					<textarea data-template>
-						## What is planned for the future?
+						## What's planned?
 					</textarea>
 				</section>
 				<section data-markdown>
@@ -678,7 +688,7 @@
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						More stability
+						### More stability
 						- The more users the more bugs ;)
 						- Speed improvements
 						- Special case handling
@@ -687,7 +697,7 @@
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						More graphical tools
+						### More graphical tools
 						- An ITM & RTT tracer?
 						- ETM tracer even?
 						- Flash layout visualization?
@@ -697,7 +707,7 @@
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						probe-rs-server
+						### probe-rs-server
 						- Concurrent use of probe-rs
 						- JSON-RPC
 						- Status: <span class="status">Being worked on</span>
@@ -719,12 +729,12 @@
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## the facts
-						- open source probe
-						- pure rust firmware
-						- extremely fast (500 Mbit/s)
-						- uses standard ARM API
-						- can stream DAP, ITM and UART data
+						## The Facts
+						- Open Source Probe
+						- Pure Rust Firmware
+						- Extremely Fast (up to 480 Mbit/s)
+						- Uses Standard ARM API
+						- Can Stream DAP, ITM and UART Data
 					</textarea>
 				</section>
 				<section data-markdown>
