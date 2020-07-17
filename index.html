@@ -126,42 +126,16 @@
 				</section>
 				<section>
 					<style scoped>
-						ul.chain {
-							width: 100%;
-							height: 100%;
-							display: flex;
-							flex-direction: column;
-							align-items: center;
-							justify-content: space-around;
+						.chain img {
 							margin: 0;
-						}
-
-						ul.chain>li {
-							width: 10em;
-							height: 3em;
-							margin-top: 0.5em;
-							display: flex;
-							align-items: center;
-							justify-content: center;
-						}
-
-						ul.chain>li.arrow {
-							font-size: 40px;
-							margin: -0.5em;
-							padding-top: 20px;
-						}
-
-						ul.chain>li.arrow>span {
-							font-size: 60px;
-							margin-top: -20px;
 						}
 					</style>
 					<div class="container chain">
-						<div class="row">
+						<div class="row" style="border: 1px solid black">
 							<div class="col-4">
-								<h4 class="mt-5">Host</h4>
+								<h4 class="mt-4">Host</h4>
 							</div>
-							<div class="col-4"><img src="img/host.png" height="150"></div>
+							<div class="col-4"><img src="img/host.png" height="100"></div>
 							<div class="col-4"></div>
 						</div>
 						<div class="row arrow">
@@ -169,17 +143,16 @@
 							<div class="col-4">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</div>
 							<div class="col-4">
 								<h5 class="status mt-2">
-									Vendor
-									Defined</h5>
+									Proprietary</h5>
 							</div>
 						</div>
-						<div class="row">
+						<div class="row" style="border: 1px solid black">
 							<div class="col-4">
-								<h4 class="mt-5">Debug<br>Probe</h4>
+								<!-- <h4 class="mt-5">Debug<br>Probe</h4> -->
 							</div>
-							<div class="col-4"><img class="" src="img/jlink.png" height="150"></div>
+							<div class="col-4"><img src="img/jlink.png" height="100"></div>
 							<div class="col-4">
-								<h5 class="mt-5">SWD/JTAG Peripheral<br>between<br>Host and Target
+								<h5 class="mt-3">SWD/JTAG Peripheral<br>between<br>Host and Target
 								</h5>
 							</div>
 						</div>
@@ -187,16 +160,15 @@
 							<div class="col-4"></div>
 							<div class="col-4">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</div>
 							<div class="col-4">
-								<h5 class="status mt-2">
-									Architecture
-									Defined</h5>
+								<h5 class="status mt-3">
+									Standardized</h5>
 							</div>
 						</div>
-						<div class="row">
+						<div class="row" style="border: 1px solid black">
 							<div class="col-4">
-								<h4 class="mt-5">Target</h4>
+								<h4 class="mt-4">Target</h4>
 							</div>
-							<div class="col-4"><img src="img/target.png" height="150"></div>
+							<div class="col-4"><img src="img/target.png" height="100"></div>
 							<div class="col-4"></div>
 						</div>
 					</div>
@@ -252,17 +224,17 @@
 						<div class="row debug-chain">
 							<div class="col-6">
 								<div class="col-12">The traditional way</div>
-								<div class="col-12" data-id="ui">UI</div>
-								<div class="col-12" data-id="mi">GDB-MI</div>
-								<div class="col-12" data-id="gdb">GDB</div>
-								<div class="col-12" data-id="stub">GDB-STUB</div>
-								<div class="col-12" data-id="target">TARGET</div>
+								<div class="col-12 mt-3" data-id="ui">UI</div>
+								<div class="col-12 mt-3" data-id="mi">GDB-MI</div>
+								<div class="col-12 mt-3" data-id="gdb">GDB</div>
+								<div class="col-12 mt-3" data-id="stub">GDB-STUB</div>
+								<div class="col-12 mt-3" data-id="target">TARGET</div>
 							</div>
 							<div class="col-6">
 								<div class="col-12">The probe-rs way</div>
-								<div class="col-12" data-id="ui">UI</div>
-								<div class="col-12" style="height: 7em" data-id="mi">SERVER</div>
-								<div class="col-12" data-id="target">TARGET</div>
+								<div class="col-12 mt-3" data-id="ui">UI</div>
+								<div class="col-12 mt-3" style="height: 7em" data-id="mi">SERVER</div>
+								<div class="col-12 mt-3" data-id="target">TARGET</div>
 							</div>
 						</div>
 					</div>
@@ -329,16 +301,16 @@
 			<!-- WHAT CAN PROBE RS ALREADY DO? -->
 			<section>
 				<section data-markdown>
-					## A small example.
+					## A small Example.
 				</section>
 				<section data-markdown>
 					### Let us
-					- Flash a program that counts up.
-					- Reset and halt the CPU.
-					- Set a breakpoint where the counter is increased.
-					- Wait for the CPU to halt.
-					- Read the counter.
-					- Repeat the last two points.
+					- Flash a Program that Counts Up.
+					- Reset and Halt the CPU.
+					- Set a Breakpoint at the Counter Increment.
+					- Wait for the CPU to Halt.
+					- Read the Counter.
+					- Repeat the Last Two Points.
 				</section>
 				<section data-markdown>
 					<textarea data-template>
@@ -424,7 +396,7 @@
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						We have control over the entire CPU.
+						We have Control over the Entire CPU!
 
 						Note:
 						- This enables us to create any other tool that does magic.
@@ -439,7 +411,7 @@
 			<section>
 				<section data-markdown>
 					<textarea data-template>
-						## probe-rs structure
+						## probe-rs Structure
 					</textarea>
 				</section>
 				<style scoped>
@@ -492,7 +464,7 @@
 								<div style="background:white">Application</div>
 							</div>
 						</div>
-						<div class="row external-lib" style="border: 1px solid black">
+						<div class="row external-lib mt-3" style="border: 1px solid black">
 							<div class="col-3">
 								<div>probe-rs-rtt</div>
 							</div>
@@ -506,7 +478,7 @@
 								<div style="background:white">Libraries</div>
 							</div>
 						</div>
-						<div class="row session"
+						<div class="row session mt-3"
 							style="border: 1px solid black; border-bottom: none; margin-bottom: 0;">
 							<div class="col-9">
 								<div>Session</div>
@@ -570,11 +542,11 @@
 						</div>
 						<h2>CMSIS-Packs</h2>
 
-						- ARM Specification for target descriptions
-						- Contains flash algorithms
-						- Contains custom debug sequences
+						- ARM Specification for Target Descriptions
+						- Contains Flash Algorithms
+						- Contains Custom Debug Sequences
 						- Implemented by Vendors!
-						- Thousands of available targets!
+						- Thousands of Available Targets!
 					</textarea>
 				</section>
 			</section>
@@ -596,45 +568,45 @@
 						- Plugin
 						- Microsoft DAP (Modern JSON API)
 						- No GDB!
-						- Status: <span class="status">Early alpha</span>
+						- Status: <span class="status">Early Alpha</span>
 						- https://github.com/probe-rs/vscode
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
 						### ITM
-						- Powerful data streaming on ARM v7/v8
-						- ISR event tracking
-						- Memory event tracking
-						- Custom binary data
-						- Status: <span class="status">Around the corner (oxidize)</span>
+						- Powerful Data Streaming on ARM v7/v8
+						- ISR Event Tracking
+						- Memory Event Tracking
+						- Custom Binary Data
+						- Status: <span class="status">Around the Corner (Oxidize)</span>
 						- https://github.com/probe-rs/probe-rs/pull/145
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						### Custom workflows
-						- ARM Debug sequences
+						### Custom Workflows
+						- ARM Debug Sequences
 						- Utilize CMSIS-Packs fully
-						- Unlocking, Attaching, Special bytes, etc.
-						- Status: Concept phase
+						- Unlocking, Attaching, Special Bytes, etc.
+						- Status: Concept Phase
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						### More stability
-						- The more users the more bugs ;)
-						- Speed improvements
-						- Special case handling
+						### More Stability
+						- The more Users the More Bugs ;)
+						- Speed Improvements
+						- Special Case Handling
 						- Status: <span class="status">Reoccuring</span>
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						### More graphical tools
-						- An ITM & RTT tracer?
-						- ETM tracer even?
-						- Flash layout visualization?
+						### More Graphical Tools
+						- An ITM & RTT Tracer?
+						- ETM Tracer even?
+						- Flash Layout Visualization?
 						- Status: <span class="status">PoC in JS</span>
 						- https://github.com/probe-rs/itm-tracer
 					</textarea>
@@ -642,9 +614,9 @@
 				<section data-markdown>
 					<textarea data-template>
 						### probe-rs-server
-						- Concurrent use of probe-rs
+						- Concurrent Use of probe-rs
 						- JSON-RPC
-						- Status: <span class="status">Being worked on</span>
+						- Status: <span class="status">Being Worked on</span>
 						- https://github.com/probe-rs/probe-rs/pull/293
 					</textarea>
 				</section>
@@ -658,16 +630,50 @@
 			<!-- OUR OWN PROBE -->
 			<section>
 				<section>
-					<h2>hs_probe</h2>
-					<img style="height: 10em;" src="img/hs-probe.png" />
+					<div class="container chain">
+						<div class="row">
+							<div class="col-12"><img src="img/host.png" height="100"></div>
+						</div>
+						<div class="row arrow">
+							<div class="col-12">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</div>
+						</div>
+						<div class="row">
+							<div class="col-12"><img class="" src="img/jlink.png" height="100"></div>
+						</div>
+						<div class="row arrow">
+							<div class="col-12">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</div>
+						</div>
+						<div class="row">
+							<div class="col-12"><img src="img/target.png" height="100"></div>
+						</div>
+					</div>
+				</section>
+				<section>
+					<div class="container chain">
+						<div class="row">
+							<div class="col-12"><img src="img/host.png" height="100"></div>
+						</div>
+						<div class="row arrow">
+							<div class="col-12">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</div>
+						</div>
+						<div class="row">
+							<div class="col-12"><img src="img/hs-probe.png" height="100" /></div>
+						</div>
+						<div class="row arrow">
+							<div class="col-12">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</div>
+						</div>
+						<div class="row">
+							<div class="col-12"><img src="img/target.png" height="100"></div>
+						</div>
+					</div>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## The Facts
+						## The hs_probe
 						- Open Source Probe
 						- Pure Rust Firmware
 						- Extremely Fast (up to 480 Mbit/s)
-						- Uses Standard ARM API
+						- Uses Standard ARM CMSIS-DAP
 						- Can Stream DAP, ITM and UART Data
 					</textarea>
 				</section>
@@ -686,8 +692,8 @@
 						- https://probe.rs
 						- https://github.com/probe-rs/probe-rs
 						- [#probe-rs:matrix.org](https://matrix.to/#/#probe-rs:matrix.org) on Matrix
-						- Questions & Bugreports very welcome
-						- PRs even more welcome ;)
+						- Questions & Bugreports Very Welcome
+						- PRs even More Welcome ;)
 					</textarea>
 				</section>
 			</section>
