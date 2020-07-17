@@ -443,10 +443,16 @@
 					</textarea>
 				</section>
 				<style scoped>
-					div.row>div>div {
-						margin-top: 0.5em;
+					div.container>div.row {
+						margin: 2.5px;
+						padding-top: 15px;
+						padding-bottom: 15px;
+					}
+
+					div.row>div>div:not(.row) {
 						height: 2em;
 						padding-top: 0.3em;
+						font-size: 0.7em;
 						vertical-align: middle;
 					}
 
@@ -462,7 +468,7 @@
 						background: #78BF30;
 					}
 
-					.core>div>div {
+					.core>div>div>div>div {
 						background: #B0BF3B;
 					}
 
@@ -472,43 +478,58 @@
 				</style>
 				<section>
 					<div class="container probe-rs-structure align-middle">
-						<div class="row mb-2 application">
-							<div class="col-4">
+						<div class="row application" style="border: 1px solid black">
+							<div class="col-3">
 								<div>cargo-flash</div>
 							</div>
-							<div class="col-4">
+							<div class="col-3">
 								<div>cargo-embed</div>
 							</div>
-							<div class="col-4">
-								<div>vscode</div>
+							<div class="col-3">
+								<div>vscode-plugin</div>
+							</div>
+							<div class="col-3">
+								<div style="background:white">Application</div>
 							</div>
 						</div>
-						<div class="row mb-2 external-lib">
-							<div class="col-4">
+						<div class="row external-lib" style="border: 1px solid black">
+							<div class="col-3">
 								<div>probe-rs-rtt</div>
 							</div>
-							<div class="col-4">
-								<div>GDB</div>
+							<div class="col-3">
+								<div>GDB-Stub</div>
 							</div>
-							<div class="col-4">
+							<div class="col-3">
 								<div>Flashing</div>
 							</div>
+							<div class="col-3">
+								<div style="background:white">Libraries</div>
+							</div>
 						</div>
-						<div class="row mb-2 session">
-							<div class="col-12">
+						<div class="row session"
+							style="border: 1px solid black; border-bottom: none; margin-bottom: 0;">
+							<div class="col-9">
 								<div>Session</div>
 							</div>
 						</div>
-						<div class="row mb-2 core">
-							<div class="col-6">
-								<div>Core</div>
+						<div class="row core"
+							style="border: 1px solid black; border-bottom: none; border-top: none; margin-top: 0; margin-bottom: 0;">
+							<div class="col-9">
+								<div class="row">
+									<div class="col-6">
+										<div>Core</div>
+									</div>
+									<div class="col-6">
+										<div>Target Description</div>
+									</div>
+								</div>
 							</div>
-							<div class="col-6">
-								<div>Target Description</div>
+							<div class="col-3">
+								<div style="background:white">probe-rs</div>
 							</div>
 						</div>
-						<div class="row mb-2 probe">
-							<div class="col-12">
+						<div class="row probe" style="border: 1px solid black; border-top: none; margin-top: 0;">
+							<div class="col-9">
 								<div>Probe</div>
 							</div>
 						</div>
