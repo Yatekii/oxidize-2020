@@ -31,7 +31,7 @@
 			<section>
 				<section data-markdown>
 					<textarea data-template>
-						My name is
+						My Name is
 						## Noah Hüsser
 						aka Yatekii
 					</textarea>
@@ -44,146 +44,27 @@
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## working at
+						Working at
 						![Technokrat](https://technokrat.ch/static/img/svg_banner-light.svg)
 						https://technokrat.ch
 					</textarea>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## I like doing
+						In my Sparetime I like doing
 						![Ju Jitsu](img/jj.jpg)
-						# Ju Jitsu
+						## Ju Jitsu
 					</textarea>
 				</section>
 			</section>
 			<!-- WHAT IS THE PROBLEM WE ARE TRYING TO SOLVE? -->
 			<section>
-				<style scoped>
-					ul.chain {
-						width: 100%;
-						height: 100%;
-						display: flex;
-						flex-direction: column;
-						align-items: center;
-						justify-content: space-around;
-						margin: 0;
-					}
-
-					ul.chain>li {
-						width: 10em;
-						height: 3em;
-						margin-top: 0.5em;
-						display: flex;
-						align-items: center;
-						justify-content: center;
-					}
-
-					ul.chain>li.arrow {
-						font-size: 40px;
-						margin: -0.5em;
-						padding-top: 20px;
-					}
-
-					ul.chain>li.arrow>span {
-						font-size: 60px;
-						margin-top: -20px;
-					}
-
-					[data-id=ui] {
-						background: #03738C;
-					}
-
-					[data-id=mi] {
-						background: #0396A6;
-					}
-
-					[data-id=gdb] {
-						background: #78BF30;
-					}
-
-					[data-id=stub] {
-						background: #B0BF3B;
-					}
-
-					[data-id=target] {
-						background: #BF6734;
-					}
-
-					[data-id=server] {
-						background: #0396A6;
-					}
-				</style>
 				<section>
-					<h2>The debug chain</h2>
+					<h2>Embedded Debugging</h2>
+					<img src="img/nrf52dk.jpg" />
 				</section>
 				<section>
-					<ul class="chain">
-						<li><img src="img/host.png"></li>
-						<li class="arrow">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</li>
-						<li><img src="img/jlink.png"></li>
-						<li class="arrow">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</li>
-						<li><img src="img/target.png"></li>
-					</ul>
-					<aside class="notes">
-					</aside>
-				</section>
-				<section>
-					<h2>The Target</h2>
-					<img src="img/target.png" height="250" />
-					<br>
-					<ul>
-						<li>An Embedded CPU</li>
-						<li>Different Architectures</li>
-						<li>Vendor Defined Behavior</li>
-						<li>Standardized Interface</li>
-					</ul>
-				</section>
-				<section>
-					<ul class="chain">
-						<li><img src="img/host.png"></li>
-						<li class="arrow">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</li>
-						<li><img src="img/jlink.png"></li>
-						<li class="arrow">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</li>
-						<li><img src="img/target.png"></li>
-					</ul>
-					<aside class="notes">
-					</aside>
-				</section>
-				<section>
-					<h2>A Probe</h2>
-					<img src="img/jlink.png" height="250" />
-					<ul>
-						<li>SWD/JTAG Peripheral between Host and Target</li>
-						<li>Mostly Proprietary Host Interface</li>
-						<li>Standardized Target Interface</li>
-					</ul>
-				</section>
-				<section>
-					<ul class="chain">
-						<li><img src="img/host.png"></li>
-						<li class="arrow">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</li>
-						<li><img src="img/jlink.png"></li>
-						<li class="arrow">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</li>
-						<li><img src="img/target.png"></li>
-					</ul>
-					<aside class="notes">
-					</aside>
-				</section>
-				<section>
-					<h2>A Host</h2>
-					<img src="img/host.png" height="250" />
-					<br>
-					<ul>
-						<li>Driver for the Probe</li>
-						<li>Driver for the Target Interface</li>
-					</ul>
-				</section>
-			</section>
-			<!-- BUT ARENT THERE OTHER TOOLS? YES BUT -->
-			<section>
-				<section>
-					<h3>There is tools for that already!</h3>
+					<h3>There is Tools for that Already!</h3>
 					<div class="container">
 						<div class="row">
 							<div class="col-6">
@@ -217,19 +98,20 @@
 						</div>
 					</div>
 					<aside class="notes">
-						- Many different tools
+						- Many Different Tools
 						- We all know them
 						- Yes but!
 					</aside>
 				</section>
 				<section data-markdown>
 					<textarea data-template>
-						## Yes but there are issues!
+						## There are Drawbacks!
 
-						- Always Eclipse & GDB based.
-						- Every manufacturer with their own flavor.
-						- Plenty of tools with awesome features that are not compatible with each other.
-						- Embedded development should be fun!
+						- Very Stiff Ecosystem.
+						- Always Eclipse & GDB Based.
+						- Every Manufacturer with their own Flavor.
+						- Plenty of Tools with Awesome Features that are not Compatible with Each Other.
+						- Embedded Development should be Fun!
 
 						Note:
 						- Doing embedded for 7 years.
@@ -242,111 +124,152 @@
 						- Embedded development should be fun!
 					</textarea>
 				</section>
-				<style scoped>
-					ul.debug-chain {
-						width: 100%;
-						height: 100%;
-						display: flex;
-						flex-direction: column;
-						align-items: center;
-						justify-content: space-around;
-						margin: 0;
-					}
-
-					ul.debug-chain>li {
-						width: 10em;
-						height: 2.5em;
-						margin-top: 0.5em;
-						display: flex;
-						align-items: center;
-						justify-content: center;
-					}
-
-					[data-id=ui] {
-						background: #03738C;
-					}
-
-					[data-id=mi] {
-						background: #0396A6;
-					}
-
-					[data-id=gdb] {
-						background: #78BF30;
-					}
-
-					[data-id=stub] {
-						background: #B0BF3B;
-					}
-
-					[data-id=target] {
-						background: #BF6734;
-					}
-
-					[data-id=server] {
-						background: #0396A6;
-					}
-				</style>
-				<section data-markdown>
-					<textarea data-template>
-						## The traditional setup
-					</textarea>
-				</section>
 				<section>
-					<ul class="debug-chain">
-						<li data-id="ui" class="d-none">UI</li>
-						<li data-id="mi" class="d-none">MI</li>
-						<li data-id="gdb">GDB</li>
-						<li data-id="stub" class="d-none">STUB</li>
-						<li data-id="target">TARGET (on Host)</li>
-					</ul>
+					<style scoped>
+						ul.chain {
+							width: 100%;
+							height: 100%;
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							justify-content: space-around;
+							margin: 0;
+						}
+
+						ul.chain>li {
+							width: 10em;
+							height: 3em;
+							margin-top: 0.5em;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+						}
+
+						ul.chain>li.arrow {
+							font-size: 40px;
+							margin: -0.5em;
+							padding-top: 20px;
+						}
+
+						ul.chain>li.arrow>span {
+							font-size: 60px;
+							margin-top: -20px;
+						}
+					</style>
+					<div class="container chain">
+						<div class="row">
+							<div class="col-4">
+								<h4 class="mt-5">Host</h4>
+							</div>
+							<div class="col-4"><img src="img/host.png" height="150"></div>
+							<div class="col-4"></div>
+						</div>
+						<div class="row arrow">
+							<div class="col-4"></div>
+							<div class="col-4">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</div>
+							<div class="col-4">
+								<h5 class="status mt-2">
+									Vendor
+									Defined</h5>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-4">
+								<h4 class="mt-5">Debug<br>Probe</h4>
+							</div>
+							<div class="col-4"><img class="" src="img/jlink.png" height="150"></div>
+							<div class="col-4">
+								<h5 class="mt-5">SWD/JTAG Peripheral<br>between<br>Host and Target
+								</h5>
+							</div>
+						</div>
+						<div class="row arrow">
+							<div class="col-4"></div>
+							<div class="col-4">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</div>
+							<div class="col-4">
+								<h5 class="status mt-2">
+									Architecture
+									Defined</h5>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-4">
+								<h4 class="mt-5">Target</h4>
+							</div>
+							<div class="col-4"><img src="img/target.png" height="150"></div>
+							<div class="col-4"></div>
+						</div>
+					</div>
 					<aside class="notes">
-						- We can directly attach to the program running on the host.
-						- Easy to do, many aweosme tools (VS, IntelliJ, VSCode, GDB)
 					</aside>
 				</section>
 				<section>
-					<ul class="debug-chain">
-						<li data-id="ui" class="d-none">UI</li>
-						<li data-id="mi" class="d-none">MI</li>
-						<li data-id="gdb">GDB</li>
-						<li data-id="stub">STUB</li>
-						<li data-id="target">TARGET (remote)</li>
-					</ul>
-					<aside class="notes">
-						- Now we want to debug on a remote target.
-						- We need a GDB server, called stub.
-						- Weird old serial protocol with lots of extensions and terrible docs.
-						- One giant gdb.c as source of truth.
-					</aside>
-				</section>
-				<section>
-					<ul class="debug-chain">
-						<li data-id="ui">UI</li>
-						<li data-id="mi">MI</li>
-						<li data-id="gdb">GDB</li>
-						<li data-id="stub">STUB</li>
-						<li data-id="target">TARGET</li>
-					</ul>
+					<style scoped>
+						ul.debug-chain {
+							width: 100%;
+							height: 100%;
+							display: flex;
+							flex-direction: column;
+							align-items: center;
+							justify-content: space-around;
+							margin: 0;
+						}
+
+						ul.debug-chain>li {
+							width: 10em;
+							height: 2.5em;
+							margin-top: 0.5em;
+							display: flex;
+							align-items: center;
+							justify-content: center;
+						}
+
+						[data-id=ui] {
+							background: #03738C;
+						}
+
+						[data-id=mi] {
+							background: #0396A6;
+						}
+
+						[data-id=gdb] {
+							background: #78BF30;
+						}
+
+						[data-id=stub] {
+							background: #B0BF3B;
+						}
+
+						[data-id=target] {
+							background: #BF6734;
+						}
+
+						[data-id=server] {
+							background: #0396A6;
+						}
+					</style>
+					<div class="container">
+						<div class="row debug-chain">
+							<div class="col-6">
+								<div class="col-12" data-id="ui">UI</div>
+								<div class="col-12" data-id="mi">MI</div>
+								<div class="col-12" data-id="gdb">GDB</div>
+								<div class="col-12" data-id="stub">STUB</div>
+								<div class="col-12" data-id="target">TARGET</div>
+							</div>
+							<div class="col-6">
+								<div class="col-12" data-id="ui">UI</div>
+								<div class="col-12" style="height: 7em" data-id="mi">SERVER</div>
+								<div class="col-12" data-id="target">TARGET</div>
+							</div>
+						</div>
+					</div>
 					<aside class="notes">
 						- We are trying to fit in a UI.
 						- GDB adds the MI (machine interface) for that.
 						- Suboptimal interface.
 						- We don't even fit in the code editor here.
 						- Can ofc be the same as the editor. Preferably moreso.
-					</aside>
-				</section>
-				<section data-markdown>
-					<textarea data-template>
-						## What if
-					</textarea>
-				</section>
-				<section>
-					<ul class="debug-chain">
-						<li data-id="ui">UI</li>
-						<li data-id="server" style="height: 8.5em;">SERVER</li>
-						<li data-id="target">TARGET (remote)</li>
-					</ul>
-					<aside class="notes">
 						- We get rid of all the intermediate things and directly implement a server in the debugger.
 						- Microsoft DAP!
 						- VSCode
@@ -361,10 +284,10 @@
 					<textarea data-template>
 						## The probe-rs benfits
 
-						- Editor of your choice
-						- Debugger of your choice
-						- Open API to be extendable
-						- Rust friendly but language-agnostic
+						- Editor of Your Choice
+						- Open, Documented API
+						- Simple Setup & Usage
+						- Rust Friendly but Language-Agnostic
 						- Project Encourages Contribution
 
 						Note:
@@ -384,20 +307,20 @@
 							- Programmatic use is not so nice.
 						- We want everything integrated into cargo.
 					</textarea>
-				</section>
-				<section>
-					<figure>
-						<img src=" https://imgs.xkcd.com/comics/standards.png">
-						<figcaption style="font-size: 0.4em;">source: https://xkcd.com/927/</figcaption>
-					</figure>
+					<section>
+						<figure>
+							<img src=" https://imgs.xkcd.com/comics/standards.png">
+							<figcaption style="font-size: 0.4em;">source: https://xkcd.com/927/</figcaption>
+						</figure>
 
-					<aside class="notes">
-						- Pretty much everyone knows this xkcd
-						- This is in fact a problem we are trying to not neglect
-						- Not only because of compatibility but also because of the project size
-						- Using existing standards from ARM and Microsoft
-						- Before we continue to the HOW let me show you what we can do as of now.
-					</aside>
+						<aside class="notes">
+							- Pretty much everyone knows this xkcd
+							- This is in fact a problem we are trying to not neglect
+							- Not only because of compatibility but also because of the project size
+							- Using existing standards from ARM and Microsoft
+							- Before we continue to the HOW let me show you what we can do as of now.
+						</aside>
+					</section>
 				</section>
 			</section>
 			<!-- WHAT CAN PROBE RS ALREADY DO? -->
@@ -760,6 +683,7 @@
 
 			// Learn about plugins: https://revealjs.com/plugins/
 			plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+			slideNumber: 'c/t',
 		});
 	</script>
 </body>
