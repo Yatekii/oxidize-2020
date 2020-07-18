@@ -60,7 +60,7 @@
 			<!-- WHAT IS THE PROBLEM WE ARE TRYING TO SOLVE? -->
 			<section>
 				<section>
-					<h2>Embedded Debugging</h2>
+					<h3>Embedded Development</h3>
 					<div class="d-flex align-items-center justify-content-center">
 						<img src="img/nrf52dk.jpg" height="100" />
 						<img src="img/XPS.webp" height="300" />
@@ -137,13 +137,13 @@
 						<div class="row" style="border: 1px solid black">
 							<div class="col-4">
 								<h4>Host</h4>
-								<small>(probe-rs)</small>
+								<small><img src="img/rust.svg" height="30"></small>
 							</div>
 							<div class="col-4"><img src="img/host.png" height="100"></div>
 							<div class="col-4"></div>
 						</div>
 						<div class="row arrow">
-							<div class="col-4"><small class="mt-3">(probe-rs)</small></div>
+							<div class="col-4"><small class="mt-3"><img src="img/rust.svg" height="30"></small></div>
 							<div class="col-4">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</div>
 							<div class="col-4">
 								<h5 class="status mt-2">
@@ -161,7 +161,7 @@
 							</div>
 						</div>
 						<div class="row arrow">
-							<div class="col-4"><small class="mt-3">(probe-rs)</small></div>
+							<div class="col-4"><small class="mt-3"><img src="img/rust.svg" height="30"></small></div>
 							<div class="col-4">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</div>
 							<div class="col-4">
 								<h5 class="status mt-3">
@@ -171,6 +171,7 @@
 						<div class="row" style="border: 1px solid black">
 							<div class="col-4">
 								<h4 class="mt-4">Target</h4>
+								<small><img src="img/rust.svg" height="30"></small>
 							</div>
 							<div class="col-4"><img src="img/target.png" height="100"></div>
 							<div class="col-4"></div>
@@ -237,7 +238,8 @@
 							<div class="col-6">
 								<div class="col-12">The probe-rs way</div>
 								<div class="col-12 mt-3" data-id="ui">UI</div>
-								<div class="col-12 mt-3" style="height: 7em" data-id="mi">SERVER<br><br>(probe-rs)</div>
+								<div class="col-12 mt-3" style="height: 7em" data-id="mi">SERVER<br><br><img
+										src="img/rust.svg" height="30"></div>
 								<div class="col-12 mt-3" data-id="target">TARGET</div>
 							</div>
 						</div>
@@ -511,7 +513,7 @@
 						</div>
 					</div>
 				</section>
-				<section>
+				<!-- <section>
 					<div class="container probe-rs-structure align-middle">
 						<div class="row mb-2 external-lib">
 							<div class="col-12">
@@ -534,7 +536,7 @@
 					<img src="img/flash-algorithms-fast.svg" height="500">
 					<aside class="notes">
 					</aside>
-				</section>
+				</section> -->
 				<section data-markdown>
 					<textarea data-template>
 						<div class="container probe-rs-structure align-middle">
@@ -635,39 +637,94 @@
 			<section>
 				<section>
 					<div class="container chain">
-						<div class="row">
-							<div class="col-12"><img src="img/host.png" height="100"></div>
+						<div class="row" style="border: 1px solid black">
+							<div class="col-4">
+								<h4>Host</h4>
+								<small><img src="img/rust.svg" height="30"></small>
+							</div>
+							<div class="col-4"><img src="img/host.png" height="100"></div>
+							<div class="col-4"></div>
 						</div>
 						<div class="row arrow">
-							<div class="col-12">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</div>
+							<div class="col-4"><small class="mt-3"><img src="img/rust.svg" height="30"></small></div>
+							<div class="col-4">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</div>
+							<div class="col-4">
+								<h5 class="status mt-2">
+									Proprietary</h5>
+							</div>
 						</div>
-						<div class="row">
-							<div class="col-12"><img class="" src="img/jlink.png" height="100"></div>
+						<div class="row" style="border: 1px solid black">
+							<div class="col-4">
+								<!-- <h4 class="mt-5">Debug<br>Probe</h4> -->
+							</div>
+							<div class="col-4"><img src="img/jlink.png" height="100"></div>
+							<div class="col-4">
+								<h5 class="mt-3">SWD/JTAG Peripheral<br>between<br>Host and Target
+								</h5>
+							</div>
 						</div>
 						<div class="row arrow">
-							<div class="col-12">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</div>
+							<div class="col-4"><small class="mt-3"><img src="img/rust.svg" height="30"></small></div>
+							<div class="col-4">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</div>
+							<div class="col-4">
+								<h5 class="status mt-3">
+									Standardized</h5>
+							</div>
 						</div>
-						<div class="row">
-							<div class="col-12"><img src="img/target.png" height="100"></div>
+						<div class="row" style="border: 1px solid black">
+							<div class="col-4">
+								<h4 class="mt-4">Target</h4>
+								<small><img src="img/rust.svg" height="30"></small>
+							</div>
+							<div class="col-4"><img src="img/target.png" height="100"></div>
+							<div class="col-4"></div>
 						</div>
 					</div>
 				</section>
 				<section>
 					<div class="container chain">
-						<div class="row">
-							<div class="col-12"><img src="img/host.png" height="100"></div>
+						<div class="row" style="border: 1px solid black">
+							<div class="col-4">
+								<h4>Host</h4>
+								<small><img src="img/rust.svg" height="30"></small>
+							</div>
+							<div class="col-4"><img src="img/host.png" height="100"></div>
+							<div class="col-4"></div>
 						</div>
 						<div class="row arrow">
-							<div class="col-12">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</div>
+							<div class="col-4"><small class="mt-3"><img src="img/rust.svg" height="30"></small></div>
+							<div class="col-4">USB&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;ETH</div>
+							<div class="col-4">
+								<h5 class="status mt-2">
+									Proprietary</h5>
+							</div>
 						</div>
-						<div class="row">
-							<div class="col-12"><img src="img/hs-probe.png" height="100" /></div>
+						<div class="row" style="border: 1px solid black">
+							<div class="col-4">
+								<!-- <h4 class="mt-5">Debug<br>Probe</h4> -->
+								<small class="mt-3"><img src="img/rust.svg" class="mt-3" height="30"></small>
+							</div>
+							<div class="col-4"><img src="img/hs-probe.png" height="100"></div>
+							<div class="col-4">
+								<h5 class="mt-3">SWD/JTAG Peripheral<br>between<br>Host and Target
+								</h5>
+							</div>
 						</div>
 						<div class="row arrow">
-							<div class="col-12">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</div>
+							<div class="col-4"><small class="mt-3"><img src="img/rust.svg" height="30"></small></div>
+							<div class="col-4">SWD&nbsp;&nbsp;<span>&#x2195;</span>&nbsp;&nbsp;JTAG</div>
+							<div class="col-4">
+								<h5 class="status mt-3">
+									Standardized</h5>
+							</div>
 						</div>
-						<div class="row">
-							<div class="col-12"><img src="img/target.png" height="100"></div>
+						<div class="row" style="border: 1px solid black">
+							<div class="col-4">
+								<h4 class="mt-4">Target</h4>
+								<small><img src="img/rust.svg" height="30"></small>
+							</div>
+							<div class="col-4"><img src="img/target.png" height="100"></div>
+							<div class="col-4"></div>
 						</div>
 					</div>
 				</section>
